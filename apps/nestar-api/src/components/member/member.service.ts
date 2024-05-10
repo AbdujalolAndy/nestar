@@ -1,8 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import MemberSchema from '../../schemas/Member.model';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class MemberService {
+    constructor(@InjectModel("Member") private readonly memberModel: Model<null>) { }
+
     public async signup(): Promise<string> {
         return "signup executed!"
     }
