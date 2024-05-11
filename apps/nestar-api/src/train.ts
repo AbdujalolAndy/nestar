@@ -30,7 +30,8 @@ ZK-TASK:
 
 Shunday function yozing, u har soniyada bir marta consolega 1 dan 5 gacha bolgan raqamlarni chop etsin va 5 soniyadan
 keyin ishini toxtatsin.
-MASALAN: printNumbers()*/
+MASALAN: printNumbers()
+
 function printNumbers(execNum: number = 5): void {
     try {
         const totalDuration = execNum + 5
@@ -50,4 +51,26 @@ function printNumbers(execNum: number = 5): void {
 }
 
 printNumbers(5)
-/********************************************************************************************************************/
+********************************************************************************************************************/
+
+/*******************************************************************************************************************
+ZL-TASK:
+
+Shunday function yozing, u parametrda berilgan stringni kebab casega otkazib qaytarsin. 
+Bosh harflarni kichik harflarga ham otkazsin.
+MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”*/
+
+function stringToKebab(text: string): any {
+    try {
+        if (!text) {
+            throw new Error("Please, insert text!")
+        }
+        return text.toLowerCase().split(" ").join("-");
+    } catch (err) {
+        return err.message
+    }
+}
+
+console.log("Kebab Case: ", stringToKebab("I love Kebab"))
+
+/*******************************************************************************************************************/
