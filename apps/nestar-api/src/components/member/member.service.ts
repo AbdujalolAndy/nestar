@@ -17,8 +17,8 @@ export class MemberService {
             //TODO: Authentification Token
             return result
         } catch (err: any) {
-            console.log("Error, Service.model:", err)
-            throw new BadRequestException(err)
+            console.log("Error, Service.model:", err.message)
+            throw new BadRequestException(Message.USED_MEMBER_NICK_OR_PHONE)
         }
     }
     public async login(input: LoginInput): Promise<Member> {
@@ -34,7 +34,7 @@ export class MemberService {
         }
 
         //TODO: COMPARE BCRYPT HASH
-        const isMatch =response.memberPassword=== memberPassword;
+        const isMatch = response.memberPassword === memberPassword;
         if (!isMatch) {
             throw new InternalServerErrorException(Message.WRONG_PASSWORD)
         }
