@@ -80,7 +80,7 @@ ZM-TASK:
 
 Shunday function yozing, u function parametrga berilgan raqamlarni orqasiga ogirib qaytarsin.
 MASALAN: reverseInteger(123456789) return 987654321
-*/
+*
 function reverseInteger(num: number): any {
     try {
         return parseInt(String(num).split("").reverse().join(""))
@@ -89,8 +89,29 @@ function reverseInteger(num: number): any {
     }
 }
 
-console.log("Reversed Number:", reverseInteger(0))
+console.log("Reversed Number:", reverseInteger(123456789))
 
 
 
-/*********************************************************************************************************************/
+********************************************************************************************************************/
+
+
+/*******************************************************************************************************************
+ZN-TASK:
+
+Shunday function yozing, uni array va number parametri bolsin. Ikkinchi parametrda berilgan raqamli indexgacha arrayni orqasiga ogirib qaytarsin.
+MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3) return [5, 6, 1, 2, 3, 4]*/
+
+function rotateArray(arr: number[], index: number): number[] {
+    const cacheList = [];
+    const updatedList = arr.filter((val: number, indexVal: number) => {
+        if (indexVal > index) return val
+        else cacheList.push(val)
+    }
+    )
+    return [...updatedList, ...cacheList]
+}
+
+console.log("Rotated Array: ", rotateArray([1, 2, 3, 4, 5, 6], 3))
+
+/*******************************************************************************************************************/
