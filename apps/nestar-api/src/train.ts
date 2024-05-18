@@ -112,6 +112,7 @@ function rotateArray(arr: number[], index: number): number[] {
     return [...updatedList, ...cacheList]
 }
 
+
 console.log("Rotated Array: ", rotateArray([1, 2, 3, 4, 5, 6], 3))
 
 /*******************************************************************************************************************/
