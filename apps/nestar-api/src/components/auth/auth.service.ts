@@ -3,6 +3,7 @@ import * as bcrypt from "bcryptjs"
 import { Member } from '../../libs/dto/member/member';
 import { T } from '../../libs/types/common';
 import { JwtService } from '@nestjs/jwt';
+import { shapeIntoMongoObjectId } from '../../libs/config';
 
 @Injectable()
 export class AuthService {
@@ -22,12 +23,12 @@ export class AuthService {
         Object.keys(member["_doc"] ? member["_doc"] : member).
             map((ele) => payload[`${ele}`] = member[`${ele}`]);
         delete payload.memberPassword;
-        return await this.jsonService.signAsync({
-            payload
-        })
+        return await this.jsonService.signAsync(payload)
     }
 
     public async verifyToken(token: string): Promise<Member> {
-        return this.jsonService.verifyAsync(token)
+        const member = await this.jsonService.verifyAsync(token)
+        member._id =  shapeIntoMongoObjectId(member._id)
+        return member
     }
 }

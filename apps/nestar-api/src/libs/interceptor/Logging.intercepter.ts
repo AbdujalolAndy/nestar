@@ -7,7 +7,7 @@ import { tap } from "rxjs/operators";
 
 export class LoggingIntercepter implements NestInterceptor {
 
-    private readonly logger: Logger = new Logger();
+    private readonly logger: Logger = new Logger(); 
 
     public intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
         const recordTime = Date.now();

@@ -19,12 +19,12 @@ const MemberSchema = new Schema({
     },
     memberPhone: {
         type: String,
-        index: { unique: true, sparse: true },
+        unique: true,
         required: true
     },
     memberNick: {
         type: String,
-        index: { unique: true, sparse: true },
+        unique: true,
         required: true
     },
     memberPassword: {
@@ -94,5 +94,4 @@ const MemberSchema = new Schema({
     }
 }, { timestamps: true, collection: "members" });
 
-
-export default MemberSchema
+export default MemberSchema;

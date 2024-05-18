@@ -10,7 +10,6 @@ import { JwtModule } from '@nestjs/jwt';
       secret: String(process.env.SECRET_TOKEN),
       signOptions: { expiresIn: "30d" }
     })
-
   ],
   providers: [AuthService],
   exports: [AuthService]
