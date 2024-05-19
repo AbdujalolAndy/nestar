@@ -33,7 +33,7 @@ const MemberSchema = new Schema({
         required: true,
     },
     memberFullName: {
-        type: String
+        type: String,
     },
     memberImage: {
         type: String,
