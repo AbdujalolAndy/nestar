@@ -100,7 +100,7 @@ console.log("Reversed Number:", reverseInteger(123456789))
 ZN-TASK:
 
 Shunday function yozing, uni array va number parametri bolsin. Ikkinchi parametrda berilgan raqamli indexgacha arrayni orqasiga ogirib qaytarsin.
-MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3) return [5, 6, 1, 2, 3, 4]*/
+MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3) return [5, 6, 1, 2, 3, 4]*
 
 function rotateArray(arr: number[], index: number): number[] {
     const cacheList = [];
@@ -115,4 +115,31 @@ function rotateArray(arr: number[], index: number): number[] {
 
 console.log("Rotated Array: ", rotateArray([1, 2, 3, 4, 5, 6], 3))
 
-/*******************************************************************************************************************/
+*******************************************************************************************************************/
+
+/******************************************************************************************************************
+ZO-TASK:
+
+Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin. 
+Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
+MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true                            **/
+
+function areParenthesesBalanced(text: string): boolean {
+    try {
+        let letSide = 0
+        let rightSide = 0
+        text.split("").filter((ele) => {
+            if (ele === "(") letSide++
+            else if (ele === ")") rightSide++
+        })
+        return letSide === rightSide
+    } catch (err: any) {
+        return err.message
+    }
+}
+
+console.log("Are parentheses balanced:", areParenthesesBalanced("string()ichida(qavslar)soni(balansda)"))
+
+
+
+/*****************************************************************************************************************/
