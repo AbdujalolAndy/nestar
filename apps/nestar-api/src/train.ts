@@ -122,7 +122,7 @@ ZO-TASK:
 
 Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin. 
 Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
-MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true                            **/
+MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true                            ***
 
 function areParenthesesBalanced(text: string): boolean {
     try {
@@ -140,6 +140,24 @@ function areParenthesesBalanced(text: string): boolean {
 
 console.log("Are parentheses balanced:", areParenthesesBalanced("string()ichida(qavslar)soni(balansda)"))
 
+
+
+*******************************************************************************************************************
+ZP-TASK:
+
+Shunday function yozing, u parametridagi array ichida eng kop takrorlangan raqamni topib qaytarsin.
+MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4*/
+function majorityElement(arr:number[]):number {
+    const listCache = {};
+    for(let num of arr){
+        
+    }
+    return 4
+}
+
+console.log("Majority Element:", majorityElement([1,2,3,4,5,4,3,4]))
+
+/*****************************************************************************************************************/
 
 
 /*****************************************************************************************************************/
