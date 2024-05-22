@@ -145,17 +145,26 @@ console.log("Are parentheses balanced:", areParenthesesBalanced("string()ichida(
 *******************************************************************************************************************
 ZP-TASK:
 
-Shunday function yozing, u parametridagi array ichida eng kop takrorlangan raqamni topib qaytarsin.
+Shunday function yozing, u parametridagi arrsay ichida eng kop takrorlangan raqamni topib qaytarsin.
 MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4*/
-function majorityElement(arr:number[]):number {
+function majorityElement(arr: number[]): number {
     const listCache = {};
-    for(let num of arr){
-        
+    for (let num of arr) {
+        if (listCache[num] >= 0) listCache[num] += 1
+        else listCache[num] = 0
     }
-    return 4
+    let maxVal = 0;
+    let result = "";
+    for (let val in listCache) {
+        if (listCache[val] > maxVal) {
+            maxVal = listCache[val]
+            result = val
+        }
+    }
+    return Number(result)
 }
 
-console.log("Majority Element:", majorityElement([1,2,3,4,5,4,3,4]))
+console.log("Majority Element:", majorityElement([5, 8, 8, 8, 8, 12, 8, 8, 20, 5, 12, 5, 3, 8, 5]))
 
 /*****************************************************************************************************************/
 
