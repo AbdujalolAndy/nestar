@@ -140,13 +140,13 @@ function areParenthesesBalanced(text: string): boolean {
 
 console.log("Are parentheses balanced:", areParenthesesBalanced("string()ichida(qavslar)soni(balansda)"))
 
+*******************************************************************************************************************/
 
-
-*******************************************************************************************************************
+/*******************************************************************************************************************
 ZP-TASK:
 
 Shunday function yozing, u parametridagi arrsay ichida eng kop takrorlangan raqamni topib qaytarsin.
-MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4*/
+MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4*
 function majorityElement(arr: number[]): number {
     const listCache = {};
     for (let num of arr) {
@@ -166,7 +166,18 @@ function majorityElement(arr: number[]): number {
 
 console.log("Majority Element:", majorityElement([5, 8, 8, 8, 8, 12, 8, 8, 20, 5, 12, 5, 3, 8, 5]))
 
-/*****************************************************************************************************************/
+*******************************************************************************************************************/
 
 
-/*****************************************************************************************************************/
+
+/*****************************************************************************************************************
+ZQ-TASK:
+
+Shunday function yozing, u parametridagi array ichida 2 marta qaytarilgan sonlarni alohida araryda qaytarsin.
+MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]*/
+
+function findDuplicates(arr: number[]): number[] {
+    return [1, 2]
+}
+
+/******************************************************************************************************************/
