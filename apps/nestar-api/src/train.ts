@@ -176,8 +176,17 @@ ZQ-TASK:
 Shunday function yozing, u parametridagi array ichida 2 marta qaytarilgan sonlarni alohida araryda qaytarsin.
 MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]*/
 
-function findDuplicates(arr: number[]): number[] {
-    return [1, 2]
+function findDuplicates(arr: number[]): any {
+    const cacheList = {};
+    for (let num of arr) {
+        if (cacheList[num] >= 1) cacheList[num]++
+        else cacheList[num] = 1
+    }
+    const result = []
+    Object.keys(cacheList).map((ele: string) => { if (cacheList[ele] >= 2) result.push(Number(ele)) })
+    return result
 }
+
+console.log("Find 2 times Dublicated Nums", findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]))
 
 /******************************************************************************************************************/
