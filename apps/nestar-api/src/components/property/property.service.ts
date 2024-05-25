@@ -171,7 +171,7 @@ export class PropertyService {
         };
 
         const sort: T = {
-            [input.sort ?? "createdAt"]: input.direction ?? Direction.DESC,
+            [input?.sort ?? "createdAt"]: input?.direction ?? Direction.DESC,
         }
 
         const result = await this.propertyModel
@@ -254,5 +254,13 @@ export class PropertyService {
             )
         }
         return result
+    }
+
+    public async removePropertyByAdmin(propertyId: ObjectId): Promise<Property> {
+        const search: T = { _id: propertyId, propertyStatus: PropertyStatus.DELETE };
+        const result = await this.propertyModel.findOneAndDelete(search).exec();
+        if (!result) throw new InternalServerErrorException(Message.REMOVE_FAILED);
+
+        return result;
     }
 }
