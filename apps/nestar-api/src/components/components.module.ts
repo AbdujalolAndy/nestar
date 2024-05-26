@@ -6,18 +6,18 @@ import { CommentModule } from './comment/comment.module';
 import { LikeModule } from './like/like.module';
 import { ViewModule } from './view/view.module';
 import { FollowModule } from './follow/follow.module';
-import { BoardAtricleModule } from './board-atricle/board-atricle.module';
+import { BoardArticleModule } from './board-article/board-article.module';
 
 @Module({
   imports: [
     MemberModule,
     AuthModule,
     PropertyModule,
-    BoardAtricleModule,
     CommentModule,
     LikeModule,
     ViewModule,
     FollowModule,
+    BoardArticleModule,
   ]
 })
 export class ComponentsModule { }
