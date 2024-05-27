@@ -174,7 +174,7 @@ console.log("Majority Element:", majorityElement([5, 8, 8, 8, 8, 12, 8, 8, 20, 5
 ZQ-TASK:
 
 Shunday function yozing, u parametridagi array ichida 2 marta qaytarilgan sonlarni alohida araryda qaytarsin.
-MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]*/
+MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]*
 
 function findDuplicates(arr: number[]): any {
     const cacheList = {};
@@ -189,4 +189,25 @@ function findDuplicates(arr: number[]): any {
 
 console.log("Find 2 times Dublicated Nums", findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]))
 
+*******************************************************************************************************************/
+
+/******************************************************************************************************************
+ZR-TASK:
+
+Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonini sanasin.
+MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}*/
+interface NumberLetter {
+    number: number;
+    letter: number;
+}
+function countNumberAndLetters(str: string): NumberLetter {
+    const result = {
+        number: 0,
+        letter: 0,
+    }
+    result.letter = str.match(/[a-zA-Z]/g)?.length ?? 0
+    result.number = str.match(/\d/g)?.length ?? 0
+    return result
+}
+console.log("Count Numbers, letters=>", countNumberAndLetters("string152%\¥"))
 /******************************************************************************************************************/
