@@ -13,8 +13,10 @@ export const availableMemberSorts = [
     "memberLikes",
     "memberViews",
 ]
-
-export const availableOptions = ["propertyBarter", "propertyRent"];
+export const availableOptions = [
+    "propertyBarter",
+    "propertyRent"
+];
 export const availablePropertySort = [
     "createdAt",
     "updatedAt",
@@ -23,12 +25,15 @@ export const availablePropertySort = [
     "propertyRank",
     "propertyPrice"
 ]
-
 export const availableBoardArticleSort = [
     "createdAt",
     "updatedAt",
     "articleLikes",
     "articleViews"
+]
+export const availableCommentSorts = [
+    "createdAt",
+    "updatedAt"
 ]
 
 // IMAGE CONFIGURATION (config.js)

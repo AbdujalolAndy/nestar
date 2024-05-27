@@ -90,7 +90,7 @@ export class BoardArticleResolver {
     public async removeBoardArticleByAdmin(
         @Args("articleId") input: string,
         @AuthMember("_id") memberId: ObjectId
-    ) {
+    ):Promise<BoardArticle> {
         console.log("Mutation: removeBoardArticleByAdmin");
         const articleId = shapeIntoMongoObjectId(input)
         return await this.boardArticleService.removeBoardArticleByAdmin(articleId)
