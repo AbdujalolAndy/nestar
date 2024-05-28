@@ -90,7 +90,8 @@ export class CommentService {
                         { $skip: (input.page - 1) * input.limit },
                         { $limit: input.limit },
                         //meLiked
-                        lookUpMember
+                        lookUpMember,
+                        {$unwind:"$memberData"}
                     ],
                     metaCounter: [{ $count: "total" }]
                 }
