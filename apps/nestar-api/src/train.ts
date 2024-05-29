@@ -195,7 +195,7 @@ console.log("Find 2 times Dublicated Nums", findDuplicates([1, 2, 3, 4, 5, 4, 3,
 ZR-TASK:
 
 Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonini sanasin.
-MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}*/
+MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}*
 interface NumberLetter {
     number: number;
     letter: number;
@@ -210,4 +210,31 @@ function countNumberAndLetters(str: string): NumberLetter {
     return result
 }
 console.log("Count Numbers, letters=>", countNumberAndLetters("string152%\¥"))
+******************************************************************************************************************/
+
+/******************************************************************************************************************
+ZS-TASK:
+
+Shunday function yozing, u parametridagi arrayni ichidagi 1 marta kelgan elemnetni qaytarsin.
+MASALAN: singleNumber([4, 2, 1, 2, 1]) return 4
+
+@MITASK*/
+
+function singleNumber(arr: number[]): any {
+    let result = 0
+    for (let num of arr) {
+        let times = 0;
+        for (let check of arr) {
+            if (num === check) times++
+        }
+        if (times && times < 2) {
+            result = num
+            break
+        }
+    }
+    return result
+
+}
+
+console.log("Single repeated number=>", singleNumber([4, 2, 1, 2, 1]))
 /******************************************************************************************************************/
