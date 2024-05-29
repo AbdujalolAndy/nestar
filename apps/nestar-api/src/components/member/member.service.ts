@@ -88,8 +88,14 @@ export class MemberService {
                 await this.memberModel.findOneAndUpdate(search, { $inc: { memberViews: 1 } }, { new: true }).exec()
                 targetMember.memberViews++
             }
-
             //Meliked
+            const likeInput: LikeInput = {
+                memberId: memberId,
+                likeRefId: targetId,
+                likeGroup: LikeGroup.MEMBER
+            }
+            targetMember.meLiked = await this.likeService.checkLikeExistence(likeInput)
+            //MeFollowed
         }
         return targetMember
     }
