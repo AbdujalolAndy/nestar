@@ -39,6 +39,8 @@ export const availableCommentSorts = [
 // IMAGE CONFIGURATION (config.js)
 import { v4 as uuidv4 } from 'uuid';
 import * as path from 'path';
+import { pipeline } from "stream";
+import { T } from "./types/common";
 
 export const validMimeTypes = ['image/png', 'image/jpg', 'image/jpeg'];
 export const getSerialForImage = (filename: string) => {
@@ -74,6 +76,37 @@ export const lookupFollowerData = {
         localField: "followerId",
         foreignField: "_id",
         as: "followerData"
+    }
+}
+
+export const lookupAuthMemberLiked = (memberId: T, targetRefId: string = "$_id",) => {
+    return {
+        $lookup: {
+            from: "likes",
+            let: {
+                localMemberId: memberId,
+                localLikeRefId: targetRefId,
+                localMyFavorite: true
+            },
+            pipeline: [
+                {
+                    $match: {
+                        $expr: {
+                            $and: [{ $eq: ["$memberId", "$$localMemberId"] }, { $eq: ["$likeRefId", "$$localLikeRefId"] }]
+                        }
+                    }
+                },
+                {
+                    $project: {
+                        _id: 0,
+                        memberId: 1,
+                        likeRefId: 1,
+                        myFavorite: "$$localMyFavorite"
+                    }
+                }
+            ],
+            as: "meLiked"
+        }
     }
 }
 
