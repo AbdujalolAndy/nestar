@@ -4,6 +4,7 @@ import { ValidationPipe } from '@nestjs/common';
 import { LoggingIntercepter } from './libs/interceptor/Logging.intercepter';
 import { graphqlUploadExpress } from "graphql-upload"
 import * as express from "express"
+import { WsAdapter } from '@nestjs/platform-ws';
 
 async function bootstrap() {
   //NESTJS BACKEND SERVER
@@ -21,6 +22,9 @@ async function bootstrap() {
 
   //Static file
   app.use("/uploads", express.static("./uploads"))
+
+  //Web Socket
+  app.useWebSocketAdapter(new WsAdapter(app))
 
   //PORT
   await app.listen(process.env.PORT_API ?? 3000);
