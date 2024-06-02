@@ -218,7 +218,7 @@ ZS-TASK:
 Shunday function yozing, u parametridagi arrayni ichidagi 1 marta kelgan elemnetni qaytarsin.
 MASALAN: singleNumber([4, 2, 1, 2, 1]) return 4
 
-@MITASK*/
+@MITASK*
 
 function singleNumber(arr: number[]): any {
     let result = 0
@@ -237,4 +237,23 @@ function singleNumber(arr: number[]): any {
 }
 
 console.log("Single repeated number=>", singleNumber([4, 2, 1, 2, 1]))
+******************************************************************************************************************/
+/******************************************************************************************************************
+ZT-TASK:
+
+Shunday function yozing, u parametridagi string ichida 1 martadan ortiq qaytarilmagan birinchi harf indeksini qaytarsin.
+MASALAN: firstUniqueCharIndex(“stamp”) return 0*/
+function firstUniqueCharIndex(str: string): number {
+    const cacheList = {}
+    for (let val of str.split("")) {
+        if (cacheList[val] > 0) cacheList[val]++
+        else cacheList[val] = 1
+    }
+    for (let letter in cacheList) {
+        if (cacheList[letter] < 2) {
+            return str.split("").indexOf(letter)
+        }
+    }
+}
+console.log("First Unique Char Index: ", firstUniqueCharIndex("stamp"))
 /******************************************************************************************************************/
