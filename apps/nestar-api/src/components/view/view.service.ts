@@ -1,9 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, ObjectId } from 'mongoose';
 import { View } from '../../libs/dto/view/view';
 import { ViewInput } from '../../libs/dto/view/view.input';
 import { T } from '../../libs/types/common';
+import { OrdinayInquiry } from '../../libs/dto/property/property.input';
+import { Properties } from '../../libs/dto/property/property';
+import { ViewGroup } from '../../libs/enums/view.enum';
+import { lookupAuthMemberLiked, lookupVisited } from '../../libs/config';
 
 @Injectable()
 export class ViewService {
@@ -24,5 +28,43 @@ export class ViewService {
             viewRefId
         }
         return await this.viewModel.findOne(search).exec()
+    }
+
+    public async getVisitedProperties(memberId: ObjectId, input: OrdinayInquiry): Promise<Properties> {
+        const { limit, page } = input;
+        const match: T = {
+            memberId,
+            viewGroup: ViewGroup.PROPERTY
+        }
+
+        const data = await this.viewModel.aggregate([
+            { $match: match },
+            { $sort: { createdAt: -1 } },
+            {
+                $lookup: {
+                    from: "properties",
+                    localField: "viewRefId",
+                    foreignField: "_id",
+                    as: "visitedProperty"
+                }
+            },
+            { $unwind: "$visitedProperty" },
+            {
+                $facet: {
+                    list: [
+                        { $skip: (page - 1) * limit },
+                        { $limit: limit },
+                        lookupVisited,
+                        { $unwind: "$visitedProperty.memberData" }
+                    ],
+                    metaCounter: [{ $count: "total" }]
+                }
+            }
+        ])
+        const result: Properties = {
+            list: data[0].list.map(ele => ele.visitedProperty),
+            metaCounter: data[0].metaCounter
+        }
+        return result
     }
 }
