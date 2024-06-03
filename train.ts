@@ -213,12 +213,12 @@ console.log("Count Numbers, letters=>", countNumberAndLetters("string152%\¥"))
 ******************************************************************************************************************/
 
 /******************************************************************************************************************
-ZS-TASK:
+    ZS-TASK:
 
-Shunday function yozing, u parametridagi arrayni ichidagi 1 marta kelgan elemnetni qaytarsin.
-MASALAN: singleNumber([4, 2, 1, 2, 1]) return 4
+    Shunday function yozing, u parametridagi arrayni ichidagi 1 marta kelgan elemnetni qaytarsin.
+    MASALAN: singleNumber([4, 2, 1, 2, 1]) return 4
 
-@MITASK*
+    @MITASK*
 
 function singleNumber(arr: number[]): any {
     let result = 0
@@ -239,10 +239,11 @@ function singleNumber(arr: number[]): any {
 console.log("Single repeated number=>", singleNumber([4, 2, 1, 2, 1]))
 ******************************************************************************************************************/
 /******************************************************************************************************************
-ZT-TASK:
+    ZT-TASK:
 
-Shunday function yozing, u parametridagi string ichida 1 martadan ortiq qaytarilmagan birinchi harf indeksini qaytarsin.
-MASALAN: firstUniqueCharIndex(“stamp”) return 0*/
+    Shunday function yozing, u parametridagi string ichida 1 martadan ortiq qaytarilmagan birinchi harf indeksini qaytarsin.
+    MASALAN: firstUniqueCharIndex(“stamp”) return 0
+*
 function firstUniqueCharIndex(str: string): number {
     const cacheList = {}
     for (let val of str.split("")) {
@@ -256,4 +257,27 @@ function firstUniqueCharIndex(str: string): number {
     }
 }
 console.log("First Unique Char Index: ", firstUniqueCharIndex("stamp"))
+******************************************************************************************************************/
+/******************************************************************************************************************
+    ZU-TASK:
+
+    Shunday function yozing, u parametridagi array ichida takrorlanmagan raqamlar yig'indisini qaytarsin.
+    MASALAN: sumOfUnique([1,2,3,2]) return 4
+*/
+
+function sumOfUnique(arr: number[]): number {
+    const cacheObject = {}
+    for (let num of arr) {
+        if (cacheObject[num] > 0) cacheObject[num]++
+        else cacheObject[num] = 1
+    }
+    let sumOfUniqueNums = 0
+    for (let num in cacheObject) {
+        if (cacheObject[num] < 2) sumOfUniqueNums += Number(num)
+    }
+    return sumOfUniqueNums
+}
+
+console.log("Sum of unique", sumOfUnique([1, 2, 3, 2]))
+
 /******************************************************************************************************************/
