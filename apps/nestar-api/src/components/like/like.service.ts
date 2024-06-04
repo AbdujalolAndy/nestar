@@ -5,7 +5,7 @@ import { Like, MeLiked } from '../../libs/dto/like/like';
 import { LikeInput } from '../../libs/dto/like/like.input';
 import { T } from '../../libs/types/common';
 import { Direction, Message } from '../../libs/enums/common.enum';
-import { OrdinayInquiry } from '../../libs/dto/property/property.input';
+import { OrdinaryInquiry } from '../../libs/dto/property/property.input';
 import { Properties, Property } from '../../libs/dto/property/property';
 import { LikeGroup } from '../../libs/enums/like.enum';
 import { lookupFavorite } from '../../libs/config';
@@ -45,7 +45,7 @@ export class LikeService {
         return result ? [{ memberId, likeRefId, myFavorite: true }] : []
     }
 
-    public async getFavoriteProperties(memberId: ObjectId, input: OrdinayInquiry): Promise<Properties> {
+    public async getFavoriteProperties(memberId: ObjectId, input: OrdinaryInquiry): Promise<Properties> {
         const { page, limit } = input
         const match: T = {
             memberId,

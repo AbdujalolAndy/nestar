@@ -4,7 +4,7 @@ import { Model, ObjectId } from 'mongoose';
 import { AuthService } from '../auth/auth.service';
 import { ViewService } from '../view/view.service';
 import { Properties, Property } from '../../libs/dto/property/property';
-import { AgentPropertiesInquiry, AllPropertiesInquiry, OrdinayInquiry, PropertiesInquiry, PropertyInput } from '../../libs/dto/property/property.input';
+import { AgentPropertiesInquiry, AllPropertiesInquiry, OrdinaryInquiry, PropertiesInquiry, PropertyInput } from '../../libs/dto/property/property.input';
 import { Direction, Message } from '../../libs/enums/common.enum';
 import { MemberService } from '../member/member.service';
 import { StatisticModifier, T } from '../../libs/types/common';
@@ -170,7 +170,7 @@ export class PropertyService {
         }
     }
 
-    public async getFavorites(memberId: ObjectId, input: OrdinayInquiry): Promise<Properties> {
+    public async getFavorites(memberId: ObjectId, input: OrdinaryInquiry): Promise<Properties> {
         return await this.likeService.getFavoriteProperties(memberId, input)
     }
 
@@ -211,7 +211,7 @@ export class PropertyService {
         return result[0]
     }
 
-    public async getVisited(memberId: ObjectId, input: OrdinayInquiry): Promise<Properties> {
+    public async getVisited(memberId: ObjectId, input: OrdinaryInquiry): Promise<Properties> {
         return await this.viewService.getVisitedProperties(memberId, input)
     }
 

@@ -4,7 +4,7 @@ import { Model, ObjectId } from 'mongoose';
 import { View } from '../../libs/dto/view/view';
 import { ViewInput } from '../../libs/dto/view/view.input';
 import { T } from '../../libs/types/common';
-import { OrdinayInquiry } from '../../libs/dto/property/property.input';
+import { OrdinaryInquiry } from '../../libs/dto/property/property.input';
 import { Properties } from '../../libs/dto/property/property';
 import { ViewGroup } from '../../libs/enums/view.enum';
 import { lookupAuthMemberLiked, lookupVisited } from '../../libs/config';
@@ -30,7 +30,7 @@ export class ViewService {
         return await this.viewModel.findOne(search).exec()
     }
 
-    public async getVisitedProperties(memberId: ObjectId, input: OrdinayInquiry): Promise<Properties> {
+    public async getVisitedProperties(memberId: ObjectId, input: OrdinaryInquiry): Promise<Properties> {
         const { limit, page } = input;
         const match: T = {
             memberId,
