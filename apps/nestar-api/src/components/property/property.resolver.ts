@@ -58,7 +58,7 @@ export class PropertyResolver {
         @Args("input") input: PropertiesInquiry,
         @AuthMember("_id") memberId: ObjectId
     ): Promise<Properties> {
-        console.log("Query: getProperties")
+        console.log("Query: getProperties",)
         return await this.propertyService.getProperties(memberId, input)
     }
 

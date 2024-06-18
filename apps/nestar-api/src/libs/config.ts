@@ -21,7 +21,7 @@ export const availablePropertySort = [
     "createdAt",
     "updatedAt",
     "propertyLikes",
-    "propertyViwes",
+    "propertyViews",
     "propertyRank",
     "propertyPrice"
 ]
