@@ -133,7 +133,7 @@ export class PISearch {
     periodsRange?: PeriodsRange;
 
     @IsOptional()
-    @Field(() => PeriodsRange, { nullable: true })
+    @Field(() => SquaresRange, { nullable: true })
     squaresRange?: SquaresRange;
 
     @IsOptional()
