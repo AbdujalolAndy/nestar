@@ -263,7 +263,7 @@ console.log("First Unique Char Index: ", firstUniqueCharIndex("stamp"))
 
     Shunday function yozing, u parametridagi array ichida takrorlanmagan raqamlar yig'indisini qaytarsin.
     MASALAN: sumOfUnique([1,2,3,2]) return 4
-*/
+*
 
 function sumOfUnique(arr: number[]): number {
     const cacheObject = {}
@@ -280,4 +280,4 @@ function sumOfUnique(arr: number[]): number {
 
 console.log("Sum of unique", sumOfUnique([1, 2, 3, 2]))
 
-/******************************************************************************************************************/
+******************************************************************************************************************/
